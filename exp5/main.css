@@ -1,0 +1,65 @@
+/* Import a nice font (optional, but recommended) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+/* Define the gradient animation */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Full viewport height */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    font-family: 'Poppins', sans-serif; /* Apply the imported font */
+
+    /* Background Gradient */
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%; /* Make gradient larger than the viewport */
+    animation: gradientAnimation 15s ease infinite; /* Apply the animation */
+}
+
+.content {
+    text-align: center;
+}
+
+h1 {
+    font-size: 5vw; /* Responsive font size */
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    /* Text Gradient */
+    background: linear-gradient(45deg, #ffcc33, #ff6666, #cc33ff, #66ccff); /* Different gradient for text */
+    background-size: 300% 300%; /* Different size for text gradient */
+    
+    /* Clip the background to the text */
+    -webkit-background-clip: text;
+    background-clip: text;
+    
+    /* Make the text color transparent so the background shows */
+    color: transparent; 
+    
+    /* Apply the same animation (or a different one if you prefer) */
+    animation: gradientAnimation 10s ease infinite alternate; /* Slightly different timing/direction */
+
+    /* Add a subtle text shadow for better readability (optional) */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 8vw; /* Increase font size relative to viewport */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 10vw; /* Further increase font size */
+    }
+}
+
