@@ -1,11 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Celsius to Fahrenheit Converter</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      text-align: center;
+      width: 300px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 1rem;
+      background-color: #00bcd4;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #008c9e;
+    }
+
+    .result {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #ffd700;
+    }
+
+    .footer {
+      font-size: 0.75rem;
+      margin-top: 1rem;
+      opacity: 0.7;
+    }
+  </style>
 </head>
 <body>
-    <h1>Shiburaj Pappu</h1>
+  <div class="container">
+    <h1>🌡️ NYC Temp Converter</h1>
+    <input type="number" id="celsius" placeholder="Enter °C" />
+    <button onclick="convert()">Convert to °F</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function convert() {
+      const celsius = parseFloat(document.getElementById("celsius").value);
+      if (isNaN(celsius)) {
+        document.getElementById("result").textContent = "Please enter a valid number.";
+        return;
+      }
+      const fahrenheit = (celsius * 9/5) + 32;
+      document.getElementById("result").textContent = `${celsius}°C = ${fahrenheit.toFixed(2)}°F`;
+    }
+  </script>
 </body>
 </html>

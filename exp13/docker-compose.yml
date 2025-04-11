@@ -1,0 +1,44 @@
+services:
+  app:
+    build: .
+    ports:
+      - 3000:3000
+    environment:
+      - KEY=jhbjsagasdlkzxmdch892374anmsdad
+      - APP_PORT=3000
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASS=test123
+      - DB_DATABASE=notes
+    networks:
+      - notesnw
+    depends_on:
+      - db
+    restart: always
+
+  db:
+    image: mysql
+    networks:
+      - notesnw
+    environment:
+      - MYSQL_ROOT_PASSWORD=test123
+      - MYSQL_DATABASE=notes
+    restart: always
+    volumes:
+      - wordpress_data:/var/lib/mysql
+
+  pma:
+    image: phpmyadmin
+    networks:
+      - notesnw
+    environment:
+      - PMA_HOST=db
+    ports:
+      - 3001:80
+    restart: always
+
+networks:
+  notesnw:
+
+volumes:
+  wordpress_data:
