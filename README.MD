@@ -77,3 +77,10 @@ Create a dockerfile to deploy a django app. Use base image `python:alpine`. Samp
 docker build . -t djapp
 docker run --rm -d -p 8080:8000 djapp
 ```
+
+11. Deploy Static Website on Docker
+Deploy a static website using Apache Webserver on Docker.
+
+
+12. Create a Docker-compose file for Example 6
+Dockercompose file for ExpressJS app
